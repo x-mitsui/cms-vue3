@@ -24,3 +24,17 @@ pnpm-debug.log*
 .env.development
 .env.production
 .env.test
+build/favicon.ico
+build/index.html
+build/css/app.8a01a76b.css
+build/css/chunk-2e4553f3.176115ce.css
+build/css/chunk-vendors.79b39a06.css
+build/img/login-bg.5825f033.svg
+build/js/app.8c53463b.js
+build/js/app.8c53463b.js.map
+build/js/chunk-2d0de903.137930b7.js
+build/js/chunk-2d0de903.137930b7.js.map
+build/js/chunk-2e4553f3.f780bf4e.js
+build/js/chunk-2e4553f3.f780bf4e.js.map
+build/js/chunk-vendors.9e9836d6.js
+build/js/chunk-vendors.9e9836d6.js.map

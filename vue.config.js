@@ -1,10 +1,10 @@
-const path = require('path')
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 module.exports = {
   // CLI提供的属性
   outputDir: './build',
+  publicPath: './',
   // 和webpack属性完全一致，最后会进行合并，默认@对应src目录
   configureWebpack: {
     resolve: {
