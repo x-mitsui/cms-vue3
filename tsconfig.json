@@ -1,39 +1,31 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
+    "target": "esnext", //按此处转换后，如果设置过babel，babel仍然会再转换
+    "module": "esnext", //同上，目标代码要使用的模块化方案commonjs amd cmd
+    "strict": true, //启用严格模式
+    "jsx": "preserve", //不 对jsx进行转换
+    "importHelpers": true, //
+    "moduleResolution": "node", //按node方式对模块进行解析，比如自动添加导入文件的路径后缀
+    "skipLibCheck": true, //跳过核心库的type检查
+    "esModuleInterop": true, //允许es module和commonjs module混合使用
+    "allowSyntheticDefaultImports": true, //允许es module和commonjs module混合使用
+    "sourceMap": true, // ts->js 的sourcemap
+    "baseUrl": ".", // 文件解析时的基础路径
+    "types": ["webpack-env"],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      // ts模块路径映射，和webpack的resolve.alias类似，不过针对的是ts的
+      "@/*": ["src/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    // 可以指定在项目中可以使用哪些库的类型
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
+    // tsconfig.json约束的文件
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"] // tsconfig.json不约束的文件，比如require('axios')
 }
