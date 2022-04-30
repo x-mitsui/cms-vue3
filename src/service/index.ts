@@ -6,7 +6,7 @@ const x_request = new Request({
   timeout,
   interceptors: {
     requestInterceptorOnFulfilled(config) {
-      console.log('实例request拦截')
+      // console.log('实例request拦截')
       const token = 'sfsd8ncen8fssjfe82nxqkiie'
       if (token) {
         if (config.headers) config.headers.Authorization = `Bearer ${token}`
@@ -17,7 +17,7 @@ const x_request = new Request({
       return err
     },
     responseInterceptorOnFulfilled(res) {
-      console.log('实例response拦截')
+      // console.log('实例response拦截')
       return res
     },
     responseInterceptorOnRejected(err) {

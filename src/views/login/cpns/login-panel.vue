@@ -1,8 +1,8 @@
 <template>
   <div class="login-panel">
     <h1 class="title">后台管理系统</h1>
-    <el-tabs type="border-card" stretch>
-      <el-tab-pane>
+    <el-tabs type="border-card" stretch v-model="currentTab">
+      <el-tab-pane name="account">
         <!-- 使用具名插槽label -->
         <template #label>
           <span>
@@ -11,13 +11,13 @@
         </template>
         <login-account ref="accountRef" />
       </el-tab-pane>
-      <el-tab-pane>
+      <el-tab-pane name="phone">
         <template #label>
           <span>
             <el-icon><cellphone /></el-icon>手机登录
           </span>
         </template>
-        <login-phone />
+        <login-phone ref="phoneRef" />
       </el-tab-pane>
     </el-tabs>
     <div class="account-control">
@@ -48,14 +48,19 @@ export default defineComponent({
   },
   setup() {
     const isRemeber = ref(false)
+    // InstanceType<typeof M>根据配置类型获取对应类型
     const accountRef = ref<InstanceType<typeof LoginAccount>>()
+    const phoneRef = ref<InstanceType<typeof LoginPhone>>()
+    const currentTab = ref('account') //对应el-tab-pane name属性
 
     function handleLoginClick() {
-      console.log('111:', 111)
-      console.log('accountRef.value:', accountRef.value)
-      accountRef.value?.loginAction(isRemeber.value)
+      if (currentTab.value === 'account') {
+        accountRef.value?.loginAction(isRemeber.value)
+      } else {
+        phoneRef.value?.loginAction(isRemeber.value)
+      }
     }
-    return { isRemeber, handleLoginClick, accountRef }
+    return { isRemeber, handleLoginClick, accountRef, phoneRef, currentTab }
   }
 })
 </script>

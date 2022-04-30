@@ -32,7 +32,7 @@ class Request {
     // 所有实例都会执行的拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('公用request拦截')
+        // console.log('公用request拦截')
         if (this.isShowLoading) {
           this.loadingInstance = ElLoading.service({
             fullscreen: true,
@@ -49,7 +49,7 @@ class Request {
 
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('公用response拦截')
+        // console.log('公用response拦截')
         if (this.isShowLoading) {
           setTimeout(() => {
             this.loadingInstance?.close()
@@ -91,7 +91,7 @@ class Request {
           }
           // 恢复，避免影响其他请求
           this.isShowLoading = DEFAULT_LOADING
-          console.log('单响应拦截：', value)
+          // console.log('单响应拦截：', value)
           resolve(value)
         })
         .catch((err) => {
