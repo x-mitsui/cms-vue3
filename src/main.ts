@@ -17,30 +17,30 @@ app.mount('#app')
 
 console.log(process.env)
 
-interface DataType {
-  data: any
-  returnType: string
-  success: boolean
-}
-x_request
-  .request<DataType>({
-    url: '/home/multidata',
-    method: 'get',
-    interceptors: {
-      requestInterceptorOnFulfilled(config) {
-        console.log('单独请求的config')
-        return config
-      },
-      responseInterceptorOnFulfilled(res) {
-        console.log('单独响应的response')
-        return res
-      }
-    },
-    isShowLoading: false
-  })
-  .then((res) => {
-    console.log(res.data)
-  })
+// interface DataType {
+//   data: any
+//   returnType: string
+//   success: boolean
+// }
+// x_request
+//   .request<DataType>({
+//     url: '/home/multidata',
+//     method: 'get',
+//     interceptors: {
+//       requestInterceptorOnFulfilled(config) {
+//         console.log('单独请求的config')
+//         return config
+//       },
+//       responseInterceptorOnFulfilled(res) {
+//         console.log('单独响应的response')
+//         return res
+//       }
+//     },
+//     isShowLoading: false
+//   })
+//   .then((res) => {
+//     console.log(res.data)
+//   })
 // setTimeout(() => {
 //   x_request.request({
 //     url: '/home/multidata',

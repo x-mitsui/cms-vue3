@@ -1,6 +1,7 @@
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
+
 module.exports = {
   // CLI提供的属性
   outputDir: './build',
@@ -20,7 +21,18 @@ module.exports = {
       Components({
         resolvers: [ElementPlusResolver()]
       })
-    ]
+    ],
+    devServer: {
+      proxy: {
+        '^/api': {
+          target: 'http://152.136.185.210:5000',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/api': ''
+          }
+        }
+      }
+    }
   }
   // 第二种方式
   // configureWebpack: (config) => {

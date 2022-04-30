@@ -27,7 +27,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "src/service/login/types"
   ],
   "exclude": ["node_modules"] // tsconfig.json不约束的文件，比如require('axios')
 }
