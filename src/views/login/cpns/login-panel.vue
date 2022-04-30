@@ -9,7 +9,7 @@
             <el-icon color="#409EFC"><user-filled /></el-icon>账号登录
           </span>
         </template>
-        <h2>账号登录</h2>
+        <login-account ref="accountRef" />
       </el-tab-pane>
       <el-tab-pane>
         <template #label>
@@ -17,14 +17,40 @@
             <el-icon><cellphone /></el-icon>手机登录
           </span>
         </template>
-        <h2>手机登录</h2>
+        <login-phone />
       </el-tab-pane>
     </el-tabs>
+    <div class="account-control">
+      <el-checkbox v-model="isRemeber">记住密码</el-checkbox>
+      <el-link>忘记密码</el-link>
+    </div>
+    <el-button class="login-btn" type="primary" @click="handleLoginClick"
+      >立即登录</el-button
+    >
   </div>
 </template>
 
-<script>
-export default {}
+<script lang="ts">
+import LoginAccount from './login-account.vue'
+import LoginPhone from './login-phone.vue'
+import { defineComponent, ref } from 'vue'
+export default defineComponent({
+  components: {
+    LoginAccount,
+    LoginPhone
+  },
+  setup() {
+    const isRemeber = ref(false)
+    const accountRef = ref<InstanceType<typeof LoginAccount>>()
+
+    function handleLoginClick() {
+      console.log('111:', 111)
+      console.log('accountRef.value:', accountRef.value)
+      accountRef.value?.loginAction()
+    }
+    return { isRemeber, handleLoginClick, accountRef }
+  }
+})
 </script>
 
 <style scoped lang="less">
@@ -37,6 +63,18 @@ export default {}
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .account-control {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .login-btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
   }
 }
 </style>

@@ -1,4 +1,15 @@
-import { ElButton, ElIcon, ElTabPane, ElTabs, ElTag } from 'element-plus'
+import {
+  ElButton,
+  ElIcon,
+  ElTabPane,
+  ElTabs,
+  ElTag,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElCheckbox,
+  ElLink
+} from 'element-plus'
 import { App } from 'vue'
 import { UserFilled, Cellphone } from '@element-plus/icons-vue'
 const ElComponents = [
@@ -8,7 +19,12 @@ const ElComponents = [
   ElTabPane,
   ElIcon,
   UserFilled,
-  Cellphone
+  Cellphone,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElCheckbox,
+  ElLink
 ]
 export default function (app: App): void {
   ElComponents.forEach((elCpn) => {
