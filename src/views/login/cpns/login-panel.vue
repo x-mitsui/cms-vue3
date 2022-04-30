@@ -34,6 +34,13 @@
 import LoginAccount from './login-account.vue'
 import LoginPhone from './login-phone.vue'
 import { defineComponent, ref } from 'vue'
+/** 在vuex操作共享信息
+ * 1.登录的逻辑（网络请求，拿到数据后的处理）
+ * 2.数据保存到某个位置
+ * 3.发送其它的请求（请求当前用户的信息）
+ * 4.拿到用户的菜单
+ * 5.跳到首页
+ */
 export default defineComponent({
   components: {
     LoginAccount,
@@ -46,7 +53,7 @@ export default defineComponent({
     function handleLoginClick() {
       console.log('111:', 111)
       console.log('accountRef.value:', accountRef.value)
-      accountRef.value?.loginAction()
+      accountRef.value?.loginAction(isRemeber.value)
     }
     return { isRemeber, handleLoginClick, accountRef }
   }

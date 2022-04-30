@@ -14,7 +14,9 @@
     "types": ["webpack-env"],
     "paths": {
       // ts模块路径映射，和webpack的resolve.alias类似，不过针对的是ts的
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@/components/*": ["src/components/*"],
+      "@/utils/*": ["src/utils/*"]
     },
     // 可以指定在项目中可以使用哪些库的类型
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
