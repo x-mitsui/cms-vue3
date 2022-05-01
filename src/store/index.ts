@@ -1,7 +1,7 @@
-import { createStore } from 'vuex'
+import { createStore, Store, useStore as useVuexStore } from 'vuex'
 
 import loginModule from './login/login'
-import { IRootState } from './types'
+import { IRootState, IStoreType } from './types'
 
 const store = createStore<IRootState>({
   state() {
@@ -21,6 +21,12 @@ const store = createStore<IRootState>({
 // 解决问题：页面刷新时，vuex数据会丢失
 export function reloadStore() {
   store.dispatch('loginModule/reloadLocalLoginInfo')
+}
+
+// 确定了泛型，缩小了useVuexStore()返回值范围
+//
+export function useStore(): Store<IStoreType> {
+  return useVuexStore()
 }
 
 export default store

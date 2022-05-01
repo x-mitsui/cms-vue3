@@ -10,9 +10,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+// 此自定义useStore的泛型值为IStoreType，规范性更好，写代码更安全
+import { useStore } from '@/store'
 
 export default defineComponent({
   setup() {
+    const store = useStore()
+    const userMenus = store.state.login.userMenus
     return {}
   }
 })
