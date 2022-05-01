@@ -22,9 +22,11 @@
             </template>
             <!-- 二级菜单 -->
             <template v-for="subitem in item.children" :key="subitem.id">
-              <el-menu-item :index="subitem.id + ''">
+              <el-menu-item
+                :index="subitem.id + ''"
+                @click="handleMenuItemClick(subitem)"
+              >
                 <i v-if="subitem.icon" :class="subitem.icon"></i>
-                <i v-else>&nbsp;</i>
                 <span>{{ subitem.name }}</span>
               </el-menu-item>
             </template>
@@ -52,6 +54,7 @@ import { defineComponent } from 'vue'
 // 扩展型useStore，此自定义useStore的泛型值为IStoreType，规范性更好，写代码更安全
 import { useStore } from '@/store'
 import NavMenuIcon from './nav-menu-icon.vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   props: {
@@ -62,12 +65,18 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
+    const router = useRouter()
     const userMenus = store.state.loginModule.userMenus
     console.log('userMenus:', userMenus)
-
+    const handleMenuItemClick = (item: any) => {
+      //
+      console.log('item:', item)
+      router.push({ path: item.url ?? '/not-found' })
+    }
     return {
       userMenus,
-      NavMenuIcon
+      NavMenuIcon,
+      handleMenuItemClick
     }
   }
 })

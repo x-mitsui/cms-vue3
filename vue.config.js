@@ -8,6 +8,7 @@ module.exports = {
   publicPath: './',
   // 和webpack属性完全一致，最后会进行合并，默认@对应src目录
   configureWebpack: {
+    devtool: 'source-map',
     resolve: {
       alias: {
         components: '@/components',

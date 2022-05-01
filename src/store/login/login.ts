@@ -9,6 +9,7 @@ import { ILoginState } from './types'
 import { IAccount, IUserInfo } from '@/service/login/types'
 import localCache from '@/utils/cache'
 import router from '@/router'
+import { mapMenuToRoutes } from '@/utils/map-menus'
 
 const loginModule: Module<ILoginState, IRootState> = {
   namespaced: true,
@@ -28,8 +29,15 @@ const loginModule: Module<ILoginState, IRootState> = {
     changeUserInfo(state, userInfo: IUserInfo) {
       state.userInfo = userInfo
     },
+
     changeUserMenus(state, menus: any) {
       state.userMenus = menus
+      // 每次设置完配置动态路由
+      const routes = mapMenuToRoutes(menus)
+      console.log('routes:', routes)
+      routes.forEach((route) => {
+        router.addRoute('main', route)
+      })
     }
   },
   actions: {
