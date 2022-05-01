@@ -13,17 +13,19 @@
   </el-icon>
 </template>
 
-<script setup lang="ts">
-import { defineProps, withDefaults } from 'vue'
-
-const props = withDefaults(
-  defineProps<{
-    item: any
-  }>(),
-  {
-    item: () => ({})
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({
+  props: {
+    item: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  setup() {
+    return {}
   }
-)
+})
 </script>
 
 <style scoped lang="less"></style>
