@@ -18,4 +18,9 @@ const store = createStore<IRootState>({
   }
 })
 
+// 解决问题：页面刷新时，vuex数据会丢失
+export function reloadStore() {
+  store.dispatch('loginModule/reloadLocalLoginInfo')
+}
+
 export default store
