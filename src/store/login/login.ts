@@ -34,7 +34,7 @@ const loginModule: Module<ILoginState, IRootState> = {
       state.userMenus = menus
       // 每次设置完配置动态路由
       const routes = mapMenuToRoutes(menus)
-      console.log('routes:', routes)
+      // console.log('routes:', routes)
       routes.forEach((route) => {
         router.addRoute('main', route)
       })

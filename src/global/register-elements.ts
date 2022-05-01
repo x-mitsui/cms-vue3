@@ -16,11 +16,14 @@ import {
   ElMenu,
   ElSubMenu,
   ElMenuItem,
-  ElMenuItemGroup
+  ElMenuItemGroup,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu,
+  ElAvatar
 } from 'element-plus'
 import { App } from 'vue'
 import {
-  UserFilled,
   Cellphone,
   Fold,
   Expand,
@@ -35,7 +38,7 @@ const ElComponents = [
   ElTabs,
   ElTabPane,
   ElIcon,
-  UserFilled,
+
   Cellphone,
   ElForm,
   ElFormItem,
@@ -55,7 +58,11 @@ const ElComponents = [
   Monitor,
   Setting,
   Goods,
-  ChatLineRound
+  ChatLineRound,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu,
+  ElAvatar
 ]
 export default function (app: App): void {
   ElComponents.forEach((elCpn) => {
