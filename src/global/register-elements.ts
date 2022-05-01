@@ -19,7 +19,16 @@ import {
   ElMenuItemGroup
 } from 'element-plus'
 import { App } from 'vue'
-import { UserFilled, Cellphone } from '@element-plus/icons-vue'
+import {
+  UserFilled,
+  Cellphone,
+  Fold,
+  Expand,
+  Monitor,
+  Setting,
+  Goods,
+  ChatLineRound
+} from '@element-plus/icons-vue'
 const ElComponents = [
   ElButton,
   ElTag,
@@ -40,7 +49,13 @@ const ElComponents = [
   ElMenu,
   ElSubMenu,
   ElMenuItem,
-  ElMenuItemGroup //只可以读不可选的文本
+  ElMenuItemGroup, //只可以读不可选的文本
+  Fold,
+  Expand,
+  Monitor,
+  Setting,
+  Goods,
+  ChatLineRound
 ]
 export default function (app: App): void {
   ElComponents.forEach((elCpn) => {

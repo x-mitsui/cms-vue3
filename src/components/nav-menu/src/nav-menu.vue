@@ -16,7 +16,7 @@
         <template v-if="item.type === 1">
           <el-sub-menu :index="item.id + ''">
             <template #title>
-              <i v-if="item.icon" :class="item.icon"></i>
+              <nav-menu-icon :item="item"></nav-menu-icon>
               <span>{{ item.name }}</span>
             </template>
             <!-- 二级菜单 -->
@@ -46,14 +46,17 @@
 import { defineComponent } from 'vue'
 // 扩展型useStore，此自定义useStore的泛型值为IStoreType，规范性更好，写代码更安全
 import { useStore } from '@/store'
+import NavMenuIcon from './nav-menu-icon.vue'
 
 export default defineComponent({
   setup() {
     const store = useStore()
     const userMenus = store.state.loginModule.userMenus
     console.log('userMenus:', userMenus)
+
     return {
-      userMenus
+      userMenus,
+      NavMenuIcon
     }
   }
 })
