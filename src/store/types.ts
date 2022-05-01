@@ -8,7 +8,7 @@ export interface IRootState {
 
 // Root下各module的类型
 export interface IRootWithModule {
-  login: ILoginState
+  loginModule: ILoginState
 }
 
 export type IStoreType = IRootState & IRootWithModule
