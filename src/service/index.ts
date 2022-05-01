@@ -1,5 +1,6 @@
 import Request from './request'
 import { baseURL, timeout } from './request/config'
+import localCache from '@/utils/cache'
 
 const x_request = new Request({
   baseURL,
@@ -7,7 +8,7 @@ const x_request = new Request({
   interceptors: {
     requestInterceptorOnFulfilled(config) {
       // console.log('实例request拦截')
-      const token = 'sfsd8ncen8fssjfe82nxqkiie'
+      const token = localCache.get('token')
       if (token) {
         if (config.headers) config.headers.Authorization = `Bearer ${token}`
       }
