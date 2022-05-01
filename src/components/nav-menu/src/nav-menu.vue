@@ -11,11 +11,7 @@
       text-color="#b7bdc3"
       active-text-color="#0a60bd"
       :collapse="collapse"
-      <!--
-      collapse-transition="false"
-      --
     >
-      >
       <template v-for="item in userMenus" :key="item.id">
         <!-- 可展开二级菜单 -->
         <template v-if="item.type === 1">
@@ -49,6 +45,9 @@
 </template>
 
 <script lang="ts">
+// RBAC RoleBaseAccessControl
+// 基于角色的访问控制：用户表--角色表--关系表【多对多-哪些角色拥有哪些权限】--菜单表
+// 后端根据用户的角色获取对应的菜单
 import { defineComponent } from 'vue'
 // 扩展型useStore，此自定义useStore的泛型值为IStoreType，规范性更好，写代码更安全
 import { useStore } from '@/store'
