@@ -12,7 +12,11 @@ import {
   ElContainer,
   ElHeader,
   ElAside,
-  ElMain
+  ElMain,
+  ElMenu,
+  ElSubMenu,
+  ElMenuItem,
+  ElMenuItemGroup
 } from 'element-plus'
 import { App } from 'vue'
 import { UserFilled, Cellphone } from '@element-plus/icons-vue'
@@ -32,7 +36,11 @@ const ElComponents = [
   ElContainer,
   ElHeader,
   ElAside,
-  ElMain
+  ElMain,
+  ElMenu,
+  ElSubMenu,
+  ElMenuItem,
+  ElMenuItemGroup //只可以读不可选的文本
 ]
 export default function (app: App): void {
   ElComponents.forEach((elCpn) => {
