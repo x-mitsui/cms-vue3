@@ -14,12 +14,13 @@ const loginModule: Module<ILoginState, IRootState> = {
   namespaced: true,
   state() {
     return {
-      token: '',
+      token: '', //定义state数据的时候为空，不建议直接在此添加逻辑，如果有需求请通过mutations修改
       userInfo: {},
       userMenus: []
     }
   },
   getters: {},
+  // 对state的修改都要通过mutations
   mutations: {
     changeToken(state, token: string) {
       state.token = token
@@ -37,14 +38,15 @@ const loginModule: Module<ILoginState, IRootState> = {
       const res = await accountLoginRequest(payload)
       const { id, token } = res.data
       commit('changeToken', token)
-      localCache.set('token', token)
+      localCache.set('token', token) //客户端控制有效期方法JSON.stringify({token,expireTime:..})
       // 请求用户信息
       const userInfoResult = await requestUserInfoById(id)
       const userInfo = userInfoResult.data
       commit('changeUserInfo', userInfo)
       localCache.set('userInfo', userInfo) //登陆过(token未过期)就直接用此数据展示
 
-      // 请求用户菜单
+      // 请求用户菜单，也可以直接让后端获取token里id，然后查询用户菜单
+      // 之所以提供id查询是因为：有可能超管会通过其它用户的id查询他的信息
       const userMenusResult = await requestUserMenus(userInfo.role.id)
       const userMenus = userMenusResult.data
       commit('changeUserInfo', userMenus)

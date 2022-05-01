@@ -8,7 +8,11 @@ import {
   ElFormItem,
   ElInput,
   ElCheckbox,
-  ElLink
+  ElLink,
+  ElContainer,
+  ElHeader,
+  ElAside,
+  ElMain
 } from 'element-plus'
 import { App } from 'vue'
 import { UserFilled, Cellphone } from '@element-plus/icons-vue'
@@ -24,7 +28,11 @@ const ElComponents = [
   ElFormItem,
   ElInput,
   ElCheckbox,
-  ElLink
+  ElLink,
+  ElContainer,
+  ElHeader,
+  ElAside,
+  ElMain
 ]
 export default function (app: App): void {
   ElComponents.forEach((elCpn) => {
